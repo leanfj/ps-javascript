@@ -4,10 +4,11 @@ Black Jack App
 
 */
 
-let card1 = 'Ace os Spades';
-let card2 = 'Ten of Hearts';
+let deck = ['Ace os Spades', 'Ten of Hearts', 'Three of Spades'];
+
+let playerDeck = [deck[0], deck[2]];
 
 console.log('Welcome to BalckJack!');
 console.log('You are dealt: ');
-console.log(' ' + card1);
-console.log(' ' + card2);
+console.log(' ' + playerDeck[0]);
+console.log(' ' + playerDeck[1]);
