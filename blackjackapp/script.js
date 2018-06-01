@@ -27,7 +27,11 @@ function criarBaralho() {
   for (let naipesIdx = 0; naipesIdx < naipes.length; naipesIdx++) {
     //loop para valores
     for (let valoresIdx = 0; valoresIdx < valores.length; valoresIdx++) {
-      baralho.push(valores[valoresIdx] + ' de ' + naipes[naipesIdx]);
+      let carta = {
+        naipe: naipes[naipesIdx],
+        valor: valores[valoresIdx]
+      };
+      baralho.push(carta);
     }
   }
 
@@ -36,20 +40,33 @@ function criarBaralho() {
 
 let baralhoMontado = criarBaralho();
 
+function cartaAleatoria() {
+  let random = Math.trunc(Math.random() * 52);
+  let cartaRandom =
+    baralhoMontado[random].valor + ' de ' + baralhoMontado[random].naipe;
+  return cartaRandom;
+}
+
+console.log(cartaAleatoria());
+
 function pegaProximaCarta() {
   //shift remove o primeiro elemento do array
   return baralhoMontado.shift();
 }
 
-//Loop para mostra o baralho
-for (let i = 0; i < baralhoMontado.length; i++) {
-  const element = baralhoMontado[i];
-  console.log(element);
+function pegaCartaString(argCarta) {
+  return argCarta.valor + ' de ' + argCarta.naipe;
 }
+
+//Loop para mostra o baralho
+// for (let i = 0; i < baralhoMontado.length; i++) {
+//   const element = baralhoMontado[i];
+//   console.log(element);
+// }
 
 let maoJogador = [pegaProximaCarta(), pegaProximaCarta()];
 
 console.log('Bem vindo ao BlackJack(21)!');
 console.log('Sua jogada: ');
-console.log(' ' + maoJogador[0]);
-console.log(' ' + maoJogador[1]);
+console.log(' ' + pegaCartaString(maoJogador[0]));
+console.log(' ' + pegaCartaString(maoJogador[1]));
