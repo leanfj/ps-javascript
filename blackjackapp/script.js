@@ -20,23 +20,34 @@ let valores = [
   'Três',
   'Dois'
 ];
-let baralho = [];
 
-//Loops dos naipes
-for (let naipesIdx = 0; naipesIdx < naipes.length; naipesIdx++) {
-  //loop para valores
-  for (let valoresIdx = 0; valoresIdx < valores.length; valoresIdx++) {
-    baralho.push(valores[valoresIdx] + ' de ' + naipes[naipesIdx]);
+function criarBaralho() {
+  let baralho = [];
+  //Loops dos naipes
+  for (let naipesIdx = 0; naipesIdx < naipes.length; naipesIdx++) {
+    //loop para valores
+    for (let valoresIdx = 0; valoresIdx < valores.length; valoresIdx++) {
+      baralho.push(valores[valoresIdx] + ' de ' + naipes[naipesIdx]);
+    }
   }
+
+  return baralho;
+}
+
+let baralhoMontado = criarBaralho();
+
+function pegaProximaCarta() {
+  //shift remove o primeiro elemento do array
+  return baralhoMontado.shift();
 }
 
 //Loop para mostra o baralho
-for (let i = 0; i < baralho.length; i++) {
-  const element = baralho[i];
+for (let i = 0; i < baralhoMontado.length; i++) {
+  const element = baralhoMontado[i];
   console.log(element);
 }
 
-let maoJogador = [baralho[0], baralho[2]];
+let maoJogador = [pegaProximaCarta(), pegaProximaCarta()];
 
 console.log('Bem vindo ao BlackJack(21)!');
 console.log('Sua jogada: ');
