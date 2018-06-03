@@ -11,6 +11,7 @@
       margin: 0 auto;
       max-width: 960px;
       text-align: center;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
     }
 
     .titulo {
@@ -18,12 +19,38 @@
       font-family: 'Courier New', Courier, monospace;
 
     }
+
+    .btn_reset {
+      padding: 15px;
+      background-color: transparent;
+      border: none;
+
+    }
+
+    .btn_mod {
+      border: 1px solid #000;
+      border-radius: 5px;
+      text-transform: uppercase;
+      transition: all .3s;
+
+    }
+
+    .btn_mod:hover {
+      background-color: #000;
+      color: #fff;
+    }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <h1 class="titulo"> Bem vindo ao BalckJack</h1>
+    <h1 class="titulo" id="titulo">BlackJack</h1>
+    <h2>Por Leandro Ferreira</h2>
+    <br>
+    <p id="text-area"> Bem vindo ao BlackJack</p>
+    <button id="new-game-button" class="btn_reset btn_mod">Novo Jogo</button>
+    <button id="hit-button" class="btn_reset btn_mod">Pegar</button>
+    <button id="stay-button" class="btn_reset btn_mod">Ficar</button>
   </div>
   <script src="script.js"></script>
 </body>
